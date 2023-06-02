@@ -6,11 +6,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
 def index(request): 
     
-    consumed_food = Consume.objects.filter(user=request.user)
-    print("consumed_food is: ", consumed_food)
-    foods = Food.objects.all()
+    consumed_food = None
 
-    if request.method == "POST": 
+    if request.user.id and request.method == "POST": 
         food_object = 0
         food_consumed = request.POST.get('food_consumed')
         try: 
@@ -20,6 +18,9 @@ def index(request):
             consume.save()
         except ObjectDoesNotExist: 
             pass
+    if request.user.id: 
+        consumed_food = Consume.objects.filter(user=request.user)
+    foods = Food.objects.all()
 
     return render(request, 'mysite/index.html', {'foods': foods, 'consumed_food': consumed_food})
 
