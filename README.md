@@ -10,3 +10,5 @@ Includes:
 
 Stacks used include: 
 Python, Django, HTML, CSS, JS
+
+<img src="https://github.com/yasmin-ahh/calorieCount/assets/78480767/4aa91b58-077e-4811-bf5c-1642456ab848" height=420px width=600px>
